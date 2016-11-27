@@ -5,11 +5,16 @@ using System.Threading.Tasks;
 
 namespace Event.Models
 {
-    interface Person
+    interface IPerson
     {
         string FirstName {get;set;}
         string LastName { get; set; }
         DateTime BirthDate { get; set; }
-        Types.Types Gender { get; set; }
+        Types.Gender Gender { get; set; }
+
+        Account Account { get; set; }
+
+        string AvatarUrl { get; set; }
+
     }
 }
