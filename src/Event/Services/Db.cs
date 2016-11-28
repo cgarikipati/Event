@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using MongoDB.Bson.Serialization;
 
 namespace Event.Services
 {
@@ -17,6 +18,8 @@ namespace Event.Services
             _client = new MongoClient();
             
             _database = _client.GetDatabase("test");
+
+            BsonClassMap.RegisterClassMap<_team>();
         }
 
         public async void InsertAsync()
@@ -57,5 +60,26 @@ namespace Event.Services
             await collection.InsertOneAsync(document);
         }
 
+        public void Save() {
+
+
+
+            var team = new _team {
+
+                name = "RoboWarrors",
+                year = DateTime.Now
+        };
+
+            var collection = _database.GetCollection<_team>("Team");
+            collection.InsertOne(team);
+
+        }
+
+        private class _team
+        {
+            
+            public string name { get; set; }
+            public object year { get; set; }
+        }
     }
 }

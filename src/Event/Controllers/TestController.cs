@@ -17,7 +17,7 @@ namespace Event.Controllers
         public IEnumerable<string> Get()
         {
             Db db = new Db();
-            db.InsertAsync();
+            db.Save();
 
             return new string[] { "Test1", "Test2" };
         }
