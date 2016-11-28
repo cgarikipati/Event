@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Event.Services;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -15,6 +16,9 @@ namespace Event.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
+            Db db = new Db();
+            db.InsertAsync();
+
             return new string[] { "Test1", "Test2" };
         }
 
