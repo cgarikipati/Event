@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Event.Models
 {
-    public class Player : IPerson
+    public class Player : IUser
     {
         public string FirstName
         {

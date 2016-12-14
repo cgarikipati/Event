@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Event.Models
 {
-    interface IPerson
+    interface IUser
     {
         string FirstName {get;set;}
         string LastName { get; set; }
